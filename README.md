@@ -1,13 +1,14 @@
-# ⚖️ Imbalance_Class_Optimizer: Custom Cost-Sensitive Logistic Regression Pipeline
+# ⚖️ Class Imbalance Optimizer: Custom Cost-Sensitive Logistic Regression Pipeline
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://www.python.org/)
 [![Numpy](https://img.shields.io/badge/Numpy-From_Scratch-orange.svg)](https://numpy.org/)
 [![Plotly](https://img.shields.io/badge/Plotly-Visualization-green.svg)](https://plotly.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 🎯 Project Overview
-**Imbalance_Class_Optimizer** is a comprehensive machine learning study and pipeline designed to solve binary classification problems in highly imbalanced datasets. 
+**Class Imbalance Optimizer** is a comprehensive machine learning study and pipeline designed to solve binary classification problems in highly imbalanced datasets. 
 
-Unlike standard implementations, this project builds a **Logistic Regression algorithm from scratch**, implementing a custom cost-sensitive loss function to penalize errors on minority classes. The pipeline automatically ingests, cleans, and evaluates performance across **50 distinct benchmark datasets**, comparing algorithmic-level solutions (Class Weighting) against data-level solutions (SMOTE).
+Unlike standard implementations using scikit-learn, this project builds a **custom Logistic Regression algorithm from scratch**, incorporating a cost-sensitive loss function specifically designed to penalize errors on minority classes. The pipeline automatically ingests, cleans, and evaluates performance across **50 distinct benchmark datasets**, comparing algorithmic-level solutions (Class Weighting) against data-level solutions (SMOTE).
 
 ---
 
@@ -37,15 +38,18 @@ To handle 50 diverse datasets without manual intervention, I built an automated 
 Instead of using `sklearn.linear_model`, I implemented the math manually to allow for custom loss manipulation:
 * **Gradient Descent:** Implemented using `autograd` to compute derivatives of the loss function.
 * **Custom Loss Function:** Modified Binary Cross Entropy to include an `imbalance_penalty`:
-    $$J(\theta) = - \frac{1}{N} \sum [ w_{pos} \cdot y \log(\hat{y}) + w_{neg} \cdot (1-y) \log(1-\hat{y}) ]$$
-    *Where $w$ is dynamically calculated based on the imbalance ratio of the specific dataset being processed.*
+  
+  $$J(\theta) = - \frac{1}{N} \sum [ w_{pos} \cdot y \log(\hat{y}) + w_{neg} \cdot (1-y) \log(1-\hat{y}) ]$$
+  
+  *Where $w$ is dynamically calculated based on the imbalance ratio of the specific dataset being processed.*
 
 ---
-
 
 ## 🛠️ Installation & Usage
 
 ### 1. Setup
+Clone the repository and install the dependencies:
+
 ```bash
 git clone [https://github.com/pedrooamaroo/Imbalance_Class_Optimizer.git](https://github.com/pedrooamaroo/Imbalance_Class_Optimizer.git)
 cd Imbalance_Class_Optimizer
